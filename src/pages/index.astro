@@ -1,16 +1,164 @@
 ---
-
+import Layout from "../layout/layout.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="_hello">
+	<div class="aviso">
+		🔨 This page is under construction
+	</div>
+	<div class="hero">
+		<div class="greetings">
+			<h3>Hi, I'm</h3>
+			<h1><span>Pavel Mansilla G.</span></h1>
+			<h2>Junior fullstack developer</h2>
+			<div class="action">
+				<p>// write the code bellow to continue</p>
+				<p>
+					<span>levap@fs ~> </span>
+					<input type="text" placeholder="whoami">
+				</p>
+			</div>
+		</div>
+		<div class="projects">
+			<div class="project">
+				<div class="blend">
+				</div>
+				<div class="project-header">
+					<h4>Project 1</h4>
+					<span>100, commits</span>
+				</div>
+				<div class="project-body">
+					<p class="line">/**</p>
+					<p class="line">* Integrates 4 diferent apis</p>
+					<p class="line">* Over 200 different components</p>
+					<p class="line">* React ,express,mysql</p>
+					<p class="line">* Full storybool story</p>
+					<p class="line">*/</p>
+					<button>see the project</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</Layout>
+<style>
+.layout > main > .aviso{
+    position: absolute;
+    top: 24px;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    padding: 1rem 2rem;
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    height: 100%;
+}
+/* .hero img{
+    width: 300px;
+    height: auto;
+    border-radius: .3rem;
+    filter: grayscale(100%);
+} */
+.hero .projects{
+    position: relative;
+    z-index: 1;
+ }
+ .hero .project{
+    border: 1px solid rgba(255, 255, 255, .2);
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 400px;
+    background: var(--primary);
+ }
+ .hero .project .blend{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    /* background: radial-gradient(circle, rgba(20,37,142,1) 0%, rgba(89,11,128,1) 94%); */
+    background: radial-gradient(circle, rgba(255, 255, 255, .1) 0%, rgb(17, 19, 21, .5) 50%);
+
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+ }
+.hero .project .project-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5rem;
+    padding: .5rem 1rem;
+}
+.hero .project .project-body{
+    background-color: #16191b;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+.hero .project .project-body button{
+    width: 100%;
+    /*quitar todos sus estilos del boton*/
+    border: none;
+    background-color: #ffd578;
+    margin-top: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.hero .project .project-body p:first-child{
+    margin-bottom: .5rem;
+}
+.hero .project .project-body p:not(:first-child){
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, .2);
+}
+.hero .greetings {
+    z-index: 1000;
+}
+.hero .greetings h1,h3,h2{
+    font-weight: 400;
+}
+.hero .greetings h1{
+    font-size: 48px;
+}
+.hero .greetings h2{
+    font-size: 24px;
+    color: var(--secondary);
+}
+.hero .greetings h3{
+    font-size: 16px;
+    color: var(--text-gray);
+}
+.hero .greetings .action{
+    margin-top: 4rem;
+}
+.hero .greetings .action p:first-child{
+    margin-bottom: 1rem;
+    color: var(--text-gray);
+}
+.hero .greetings .action span{
+    color: var(--tertiary);
+    font-size: 24px;
+}
+.hero .greetings .action input{
+    font-size: 24px;
+}
+
+.hero .greetings input[type="text"]{
+    border: none;
+    background-color: var(--primary);
+    /* necesito el color del cursor en blanco*/
+    color: #fff;
+}
+.hero .greetings input[type="text"]:focus-visible{
+    outline: none;
+}
+.hero .greetings input[type="text"]::placeholder{
+    color: rgba(241, 120, 255, 0.5);/*241.120.255*/
+}
+</style>
