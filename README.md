@@ -45,3 +45,6 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+inspiration
+https://www.behance.net/gallery/132027861/Portfolio-Concept?tracking_source=search_projects|developer+website+portfolio&l=40

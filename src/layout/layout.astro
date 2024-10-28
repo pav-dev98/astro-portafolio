@@ -9,7 +9,8 @@ const { title, description } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="stylesheet" href="/styles/global.css">
+        
+        <script src="https://kit.fontawesome.com/585d4053dd.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="layout">
@@ -82,7 +83,7 @@ nav ul li{
 }
 nav ul li.active{
     border: none;
-    border-top: rgba(255, 255, 255, 1) 1px solid;
+    border-top: #ffd578 3px solid;
     background-color: var(--primary);
     
 }
