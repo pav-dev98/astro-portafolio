@@ -1,200 +1,38 @@
 ---
-import Layout from "../layout/layout.astro"
+import Layout from "../layout/layout.astro";
+import { Hero } from "../components/Hero";
+import { ProjectList } from "../components/ProjectList";
 ---
 
 <Layout title="_hello">
 	<div class="aviso">
 		🔨 This page is under construction
 	</div>
-	<div class="hero">
-		<div class="greetings">
-			<h3>Hi, I'm</h3>
-			<h1><span>Pavel Mansilla G.</span></h1>
-			<h2>Junior fullstack developer</h2>
-			<div class="action">
-				<p>// write the code bellow to continue <br>// or tab for more aptions</p>
-				
-				<div class="terminal">
-					<span>levap@fs ~> </span>
-					<div class="custom-input">
-						<input type="text">
-						<span >whoami..</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="projects">
-			<div class="project">
-				<div class="blend">
-				</div>
-				<div class="project-header">
-					<h4>Social media</h4>
-					<span>100, commits</span>
-				</div>
-				<div class="project-body">
-					<div class="editor">
-						<p class="line">/**</p>
-						<p class="line">* Integrates 4 diferent apis</p>
-						<p class="line">* Over 200 different components</p>
-						<p class="line">* React ,express,mysql</p>
-						<p class="line">* docker, docker-compose, kubernates</p>
-						<p class="line">*/</p>
-					</div>
-					<button>see the project</button>
-				</div>
-			</div>
-			
-		</div>
-	</div>
+    <div class="hero">
+        <Hero client:load />
+        <ProjectList client:idle />
+    </div>
 </Layout>
 <style>
 .layout > main > .aviso{
-    position: absolute;
-    top: 24px;
-    left: 0;
-    background-color: black;
-    width: 100%;
-    padding: 1rem 2rem;
-}
+        position: absolute;
+        top: 24px;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        padding: 1rem 2rem;
+    }
 .hero{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6rem;
-    height: 100%;
-}
-/* .hero img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6rem;
+        height: 100%;
+    }
+    /* .hero img{
     width: 300px;
     height: auto;
     border-radius: .3rem;
     filter: grayscale(100%);
 } */
-.hero .projects{
-    position: relative;
-    z-index: 1;
- }
- .hero .project{
-    border: 1px solid rgba(255, 255, 255, .2);
-    padding: .5rem 1rem;
-    border-radius: 4px;
-    font-size: 12px;
-    width: 400px;
-    background: var(--primary);
- }
- .hero .project .blend{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    /* background: radial-gradient(circle, rgba(20,37,142,1) 0%, rgba(89,11,128,1) 94%); */
-    background: radial-gradient(circle, rgba(255, 255, 255, .1) 0%, rgb(17, 19, 21, .5) 50%);
-
-    top: -50%;
-    left: -50%;
-    z-index: -1;
- }
-.hero .project .project-header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 5rem;
-    padding: .5rem 1rem;
-}
-.hero .project .project-body{
-    background-color: #16191b;
-    padding: .5rem 0rem;
-    border-radius: 8px;
-    border: 1px solid black;
-}
-.hero .project .project-body .editor{
-    padding: 1rem;
-}
-.hero .project .project-body button{
-    width: 100%;
-    /*quitar todos sus estilos del boton*/
-    border: none;
-    background-color: #ffd578;
-    margin-top: 1rem;
-    text-align: left;
-    margin-bottom: 2rem;
-	padding:.2rem 1rem
-}
-.hero .project .project-body p:first-child{
-    margin-bottom: .5rem;
-}
-.hero .project .project-body p:not(:first-child){
-    padding-left: 1rem;
-    border-left: 1px solid rgba(255, 255, 255, .2);
-}
-.hero .greetings {
-    z-index: 1000;
-}
-.hero .greetings h1,h3,h2{
-    font-weight: 400;
-}
-.hero .greetings h1{
-    font-size: 48px;
-}
-.hero .greetings h2{
-    font-size: 24px;
-    color: var(--secondary);
-}
-.hero .greetings h3{
-    font-size: 16px;
-    color: var(--text-gray);
-}
-.hero .greetings .action{
-    margin-top: 4rem;
-}
-.hero .greetings .action .terminal{
-    display: flex;
-	align-items: center;
-}
-.hero .greetings .action .terminal span{
-	color: var(--tertiary);
-	font-size: 24px;
-}
-.hero .greetings .action .terminal .custom-input{
-	background-color: transparent;
-	position: relative;
-	z-index: 100;
-	margin-left: 1rem;
-}
-.hero .greetings .action .terminal .custom-input span{
-	width: 8ch;
-	color: var(--tertiary);
-    font-size: 24px;
-	position: absolute;
-	left: 0;
-	z-index: 110;
-	opacity: .4;
-	animation: typing 1.5s steps(8) , blink .5s step-end infinite alternate;
-	overflow: hidden;
-	border-right: 3px solid black;
-	white-space:no-wrap;
-}
-.hero .greetings .action .terminal .custom-input input[type="text"]{
-	font-size: 24px;
-	position: relative;
-	z-index: 120;
-	background: transparent;
-	border: none;
-	color: white
-}
-.hero .greetings .action p:first-child{
-    margin-bottom: 1rem;
-    color: var(--text-gray);
-}
-
-
-.hero .greetings input[type="text"]:focus-visible{
-    outline: none;
-}
-@keyframes typing {
-	from { width: 0 }
-}
-@keyframes blink {
-  50% { border-color: white }
-}
 </style>

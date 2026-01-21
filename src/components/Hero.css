@@ -1,0 +1,60 @@
+.greetings {
+    z-index: 1000;
+}
+.greetings h1, .greetings h3, .greetings h2 {
+    font-weight: 400;
+}
+.greetings h1 {
+    font-size: 48px;
+}
+.greetings h2 {
+    font-size: 24px;
+    color: var(--secondary);
+}
+.greetings h3 {
+    font-size: 16px;
+    color: var(--text-gray);
+}
+.greetings .action {
+    margin-top: 4rem;
+}
+.greetings .action .terminal {
+    display: flex;
+    align-items: center;
+}
+/* .greetings .action .terminal span {
+    color: var(--tertiary);
+    font-size: 24px;
+} */
+.greetings .action .terminal .custom-input {
+    background-color: transparent;
+    position: relative;
+    z-index: 100;
+    margin-left: 1rem;
+}
+.greetings .action .terminal .custom-input span {
+    color: var(--secondary);
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    z-index: 110;
+    opacity: .4;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.greetings .action .terminal .custom-input input[type="text"] {
+    font-size: 16px;
+    position: relative;
+    z-index: 120;
+    background: transparent;
+    border: none;
+    color: var(--secondary);
+
+}
+.greetings .action p:first-child {
+    margin-bottom: 1rem;
+    color: var(--text-gray);
+}
+.greetings input[type="text"]:focus-visible {
+    outline: none;
+}
