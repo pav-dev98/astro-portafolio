@@ -11,6 +11,12 @@
     font-size: 12px;
     width: 400px;
     background: var(--primary);
+    cursor: pointer;
+    transition: transform 0.3s ease, z-index 0s;
+}
+.project:hover{
+    /* z-index: 1000; */
+    transform: translateY(0) translateX(0) scale(1.05);
 }
 .project.first{
     position:absolute;
