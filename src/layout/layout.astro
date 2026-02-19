@@ -1,5 +1,7 @@
 ---
 const { title, description } = Astro.props;
+const pathname = new URL(Astro.url).pathname;
+const currentPath = pathname.slice(1); 
 ---
 
 <!DOCTYPE html>
@@ -9,7 +11,7 @@ const { title, description } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{title}</title>
         <meta name="description" content={description} />
-        
+
         <script src="https://kit.fontawesome.com/585d4053dd.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -17,8 +19,17 @@ const { title, description } = Astro.props;
             <header>
                 <nav>
                     <ul>
-                        <li class="active"><a href="index.html">_hello</a></li>
-                        <li><a href="#">_about me</a></li>
+                        <li class={pathname === "/" ? "active" : ""}>
+                            <a href="/">_hello</a>
+                        </li>
+                        <li
+                            class={pathname === "/about" ||
+                            pathname === "/about/"
+                                ? "active"
+                                : ""}
+                        >
+                            <a href="/about">_about me</a>
+                        </li>
                         <li><a href="#">_projects</a></li>
                         <li><a href="#">_contact</a></li>
                         <li><a href="#"></a></li>
@@ -43,101 +54,101 @@ const { title, description } = Astro.props;
 
 <style is:global>
     :root{
-    --primary: #111315;
-    --secondary: #78bcff;
-    --tertiary: #f178ff;
-    --text-gray: #adb5bd;
-}
+        --primary: #111315;
+        --secondary: #78bcff;
+        --tertiary: #f178ff;
+        --text-gray: #adb5bd;
+    }
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Source Code Pro", monospace;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Source Code Pro", monospace;
+    }
 header{
-    position: relative;
-}
+        position: relative;
+    }
 nav{
-    /* background-color: #212529; */
-    background-color: var(--primary);
-    padding-bottom: 1rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
-    position: relative;
-    z-index: 200;
+        /* background-color: #212529; */
+        background-color: var(--primary);
+        padding-bottom: 1rem;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+        position: relative;
+        z-index: 200;
     
-}
+    }
 nav ul{
-    list-style-type: none;
-    display: flex;
-    background-color: #212529;
+        list-style-type: none;
+        display: flex;
+        background-color: #212529;
     
-}
+    }
 nav ul a{
-    color: var(--text-gray);
-    text-decoration: none;
-}
+        color: var(--text-gray);
+        text-decoration: none;
+    }
 nav ul li{
     padding: .5rem 1rem;
     border: rgba(108, 117, 125, .5) 1px solid;
-    /* border-top: rgba(255, 255, 255, .5); */
-}
+        /* border-top: rgba(255, 255, 255, .5); */
+    }
 nav ul li.active{
-    border: none;
-    border-top: #ffd578 3px solid;
-    background-color: var(--primary);
+        border: none;
+        border-top: #ffd578 3px solid;
+        background-color: var(--primary);
     
-}
+    }
 nav ul li.active > a{
-    color: #ffd578;
+        color: #ffd578;
     
-}
+    }
 nav ul li:last-child{
-    flex-grow: 1;
-}
-main {
-    /* background-color: #adb5bd; */
-    /* background-color: #040506; */
-    background-color: var(--primary);
-    color: #fff;
-    position: relative;
-    overflow: hidden;
+        flex-grow: 1;
+    }
+    main {
+        /* background-color: #adb5bd; */
+        /* background-color: #040506; */
+        background-color: var(--primary);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
 
-}
+    }
 footer{
-    background-color: #212529;
-}
+        background-color: #212529;
+    }
 footer ul{
-    list-style-type: none;
-    display: flex;
-}
+        list-style-type: none;
+        display: flex;
+    }
 footer ul li{
     padding: .5rem 1rem;
-    border: #6c757d 1px solid;
-}
+        border: #6c757d 1px solid;
+    }
 footer ul li:last-child{
-    flex-grow: 1;
-    text-align: right;
-}
+        flex-grow: 1;
+        text-align: right;
+    }
 footer ul li a{
-    color: var(--text-gray);
-    text-decoration: none;
-}
+        color: var(--text-gray);
+        text-decoration: none;
+    }
 .layout{
-    /* display: flex; */
-    /* flex-direction: column; */
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-}
+        /* display: flex; */
+        /* flex-direction: column; */
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
 .layout > main{
-    flex-grow: 1;
-}
+        flex-grow: 1;
+    }
 .layout > main > .aviso{
-    position: absolute;
-    top: 24px;
-    left: 0;
-    background-color: black;
-    width: 100%;
-    padding: 1rem 2rem;
-}
+        position: absolute;
+        top: 24px;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        padding: 1rem 2rem;
+    }
 </style>

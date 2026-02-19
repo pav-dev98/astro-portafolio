@@ -1,8 +1,381 @@
 ---
-import Layout from "../layout/layout.astro"
+import { Image } from "astro:assets";
+import Layout from "../layout/layout.astro";
+import miFoto from "../assets/perfil.jpg";
 ---
 
-<Layout title="About">
-    <h1>About me</h1>
-    <p>My name is John Doe and I'm a web developer.</p>
+<Layout title="_about me">
+    <div class="about-container">
+        <section class="profile">
+            <div class="profile-header">
+                <div class="avatar">
+                    <Image
+                        src={miFoto}
+                        alt="Mi foto"
+                        width={100}
+                        height={100}
+                    />
+                </div>
+                <div class="profile-info">
+                    <h1><span class="prompt">&gt;</span> whoami</h1>
+                    <p class="subtitle">
+                        Fullstack Developer & AI Enthusiast
+                    </p>
+                </div>
+            </div>
+
+            <div class="bio">
+                <p>
+                    I'm a passionate developer based in <span class="highlight"
+                        >Chile</span
+                    > with over
+                    <span class="highlight">3 years</span> of experience building
+                    web applications. I love creating elegant solutions to complex
+                    problems and I'm constantly learning new technologies.
+                </p>
+            </div>
+        </section>
+
+        <section class="experience">
+            <h2><span class="prompt">&gt;</span> cat experience.json</h2>
+            <div class="timeline">
+                <div class="job">
+                    <div class="job-header">
+                        <span class="company"
+                            >Freelance (Independent Projects & Collaborations)</span
+                        >
+                        <span class="period">2023 - Present</span>
+                    </div>
+                    <h3>Full Stack Developer</h3>
+                    <ul>
+                        <li>
+                            Development and maintenance of full stack web
+                            applications for clients and personal projects,
+                            focusing on scalability, testing and automatic
+                            deployments.
+                        </li>
+                        <li>
+                            Implementation of administrative modules, API
+                            integrations and performance optimizations
+                        </li>
+                        <li>
+                            Intensive use of Laravel + Vue/React,
+                            Node.js/Express, CI/CD and automated testing.
+                        </li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <div class="job-header">
+                        <span class="company"
+                            >Techno Server (ONG Internacional - Entrepreneurship
+                            and Agriculture)</span
+                        >
+                        <span class="period">2025 - 2025</span>
+                    </div>
+                    <h3>Fullstack Developer</h3>
+                    <ul>
+                        <li>
+                            I developed a full stack administrative module in Laravel + Vue.js for agricultural data management, in production and used by + 200 users.
+                        </li>
+                        <li>
+                            I implemented Excel export/import, reducing manual report generation time by 40%.
+                        </li>
+                        <li>
+                            I optimized MySQL, third-party API integrations, and GitHub CI/CD deployments.
+                        </li>
+                        <li>
+                            I improved UI/UX with positive feedback; participated in code reviews and pull requests.
+                        </li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <div class="job-header">
+                        <span class="company">Lead Working Partner</span>
+                        <span class="period">2024 - 2024</span>
+                    </div>
+                    <h3>QA Automation</h3>
+                    <ul>
+                        <li>Configured automated testing in GitHub Actions as part of CI/CD pipeline.</li>
+                        <li>Developed and maintained test suites with Playwright + Cucumber for production stability.</li>
+                        <li>Manual/automated testing and close collaboration with devs through GitHub workflows.</li>
+
+                    </ul>
+                </div>
+                <div class="job">
+                    <div class="job-header">
+                        <span class="company">Ecapture(Automatización Documental BPM) </span>
+                        <span class="period">2023 - 2024</span>
+                    </div>
+                    <h3>FrontEnd Developer</h3>
+                    <ul>
+                        <li>Developed document processing module in Angular + REST APIs, reducing 30% processing times for registration/consultation.</li>
+                        <li>Automated testing con Cypress; optimization queries PostgreSQL for better frontend performance.</li>
+                        <li>Collaboration with PMs and designers in features following best practices.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2><span class="prompt">&gt;</span> ls skills/</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="tags">
+                        <span>React</span><span>TypeScript</span><span>Astro</span>
+                        <span>Next.js</span><span>CSS/Tailwind</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="tags">
+                        <span>Node.js</span><span>Python</span><span>PostgreSQL</span>
+                        <span>MongoDB</span><span>GraphQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <div class="tags">
+                        <span>Git</span><span>Docker</span><span>AWS</span>
+                        <span>Linux</span><span>Figma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2><span class="prompt">&gt;</span> cat education.json</h2>
+            <div class="edu-item">
+                <h3>Computer Science Degree</h3>
+                <p>National Agrarian University of The Jungle | 2015 - 2019 | Peru</p>
+            </div>
+            <div class="edu-item">
+                <h3>Fullstack Web Development Bootcamp</h3>
+                <p>Bootcamp X | 2020 | Peru</p>
+            </div>
+        </section>
+
+        <section class="interests">
+            <h2><span class="prompt">&gt;</span> cat interests.txt</h2>
+            <div class="interests-list">
+                <span class="interest">Open Source</span>
+                <span class="interest">Chess</span>
+                <span class="interest">Machine Learning</span>
+                <span class="interest">Music Production</span>
+                <span class="interest">Hiking</span>
+            </div>
+        </section>
+
+        <div class="contact-cta">
+            <p>// Want to work together?</p>
+            <a href="/contact" class="cta-button">&gt; let's talk</a>
+        </div>
+    </div>
 </Layout>
+
+<style>
+    .about-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+    }
+
+    .profile {
+        margin-bottom: 3rem;
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+        border: 3px solid var(--secondary);
+        overflow: hidden;
+    }
+
+    .profile-info h1 {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    .subtitle {
+        color: var(--secondary);
+        margin-top: 0.5rem;
+    }
+
+    .bio {
+        color: var(--text-gray);
+        line-height: 1.8;
+        max-width: 700px;
+    }
+
+    .highlight {
+        color: var(--tertiary);
+    }
+
+    .prompt {
+        color: var(--tertiary);
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin: 2rem 0 1rem;
+        color: var(--text-gray);
+    }
+
+    .timeline {
+        border-left: 2px solid var(--secondary);
+        padding-left: 1.5rem;
+    }
+
+    .job {
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .job::before {
+        content: '';
+        position: absolute;
+        left: -1.65rem;
+        top: 0.5rem;
+        width: 10px;
+        height: 10px;
+        background: var(--secondary);
+        border-radius: 50%;
+    }
+
+    .job-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+
+    .company {
+        color: var(--secondary);
+        font-weight: 600;
+    }
+
+    .period {
+        color: var(--text-gray);
+        opacity: 0.7;
+    }
+
+    .job h3 {
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+    }
+
+    .job ul {
+        list-style: none;
+        padding-left: 1rem;
+    }
+
+    .job ul li {
+        color: var(--text-gray);
+        margin-bottom: 0.3rem;
+        position: relative;
+    }
+
+    .job ul li::before {
+        content: '>';
+        position: absolute;
+        left: -1rem;
+        color: var(--tertiary);
+        opacity: 0.5;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-category h3 {
+        font-weight: 400;
+        color: var(--secondary);
+        margin-bottom: 0.75rem;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tags span {
+        background: rgba(120, 188, 255, 0.1);
+        border: 1px solid rgba(120, 188, 255, 0.3);
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+        color: var(--text-gray);
+    }
+
+    .edu-item {
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        border-left: 2px solid var(--tertiary);
+    }
+
+    .edu-item h3 {
+        font-weight: 400;
+    }
+
+    .edu-item p {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+    }
+
+    .interests-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .interest {
+        color: var(--text-gray);
+        padding: 0.3rem 0;
+    }
+
+    .interest::after {
+        content: ',';
+        color: var(--tertiary);
+    }
+
+    .interest:last-child::after {
+        content: '.';
+    }
+
+    .contact-cta {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-cta p {
+        color: var(--text-gray);
+        margin-bottom: 1rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: transparent;
+        border: 1px solid var(--secondary);
+        color: var(--secondary);
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+        background: var(--secondary);
+        color: var(--primary);
+    }
+</style>
