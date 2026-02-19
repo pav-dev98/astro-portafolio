@@ -1,3 +1,5 @@
+import './Project.css';
+
 export default function Project({ name, version, description, link, features, className="" }: { name: string, version: string, description: string, link: string, features: string[], className?: string }) {
     return (
         <div className={"project " + className}>
@@ -15,7 +17,7 @@ export default function Project({ name, version, description, link, features, cl
                 </div>
                 <button onClick={() => {
                     // abrir en una nueva pestaña
-                    window.open('https://github.com/pav-dev98/spot', '_blank');
+                    window.open(link, '_blank');
                 }}>see the project</button>
             </div>
         </div>

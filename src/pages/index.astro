@@ -1,7 +1,7 @@
 ---
 import Layout from "../layout/layout.astro";
 import { Hero } from "../components/Hero";
-import { ProjectList } from "../components/ProjectList";
+import Stack from "../components/Stack";
 ---
 
 <Layout title="_hello">
@@ -10,7 +10,18 @@ import { ProjectList } from "../components/ProjectList";
 	</div>
     <div class="hero">
         <Hero client:load />
-        <ProjectList client:idle />
+        <!-- <ProjectList client:idle /> -->
+        <div style={{ width: "400px", height: "400px" }}>
+            <Stack
+            client:load
+            randomRotation={false}
+            sensitivity={200}
+            sendToBackOnClick={true}
+            autoplay={false}
+            autoplayDelay={3000}
+            pauseOnHover={false}
+            />
+        </div>
     </div>
 </Layout>
 <style>

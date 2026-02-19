@@ -1,0 +1,70 @@
+.projects {
+    position: relative;
+    z-index: 1;
+}
+
+.project {
+    border: 1px solid rgba(255, 255, 255, .2);
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 400px;
+    background: var(--primary);
+    cursor: pointer;
+    transition: transform 0.3s ease, z-index 0s;
+}
+.blend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, .1) 0%, rgb(17, 19, 21, .5) 60%);
+    top: -50%;
+    left: -50%;
+    z-index: -1000;
+} 
+
+.project .project-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5rem;
+    padding: .5rem 1rem;
+}
+
+.project .project-body {
+    background-color: #16191b;
+    padding: .5rem 0rem;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.project .project-body .editor {
+    padding: 1rem;
+    color: var(--text-gray);
+}
+
+.project .project-body button {
+    width: 100%;
+    border: none;
+    background-color: #ffd578;
+    margin-top: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    padding: .2rem 1rem;
+    cursor: pointer;
+}
+
+.project .project-body p:first-child {
+    margin-bottom: .5rem;
+}
+
+.project .project-body p:not(:first-child) {
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, .2);
+}
+
+.line {
+    font-family: monospace;
+} 
