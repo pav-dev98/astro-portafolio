@@ -30,7 +30,14 @@ const currentPath = pathname.slice(1);
                         >
                             <a href="/about">_about me</a>
                         </li>
-                        <li><a href="#">_projects</a></li>
+                        <li
+                            class={pathname === "/projects" ||
+                            pathname === "/projects/"
+                                ? "active"
+                                : ""}
+                        >
+                            <a href="/projects">_projects</a>
+                        </li>
                         <li><a href="#">_contact</a></li>
                         <li><a href="#"></a></li>
                     </ul>

@@ -1,0 +1,331 @@
+---
+import Layout from "../layout/layout.astro";
+
+const projects = [
+    {
+        name: "Spot CLI",
+        version: "v1.0.0",
+        description: "Smart directory & stack manager for developers",
+        link: "https://github.com/pav-dev98/spot",
+        tags: ["TypeScript", "Node.js", "SQLite"],
+        stats: { stars: 120, forks: 15 }
+    },
+    {
+        name: "Peruvian Amazonite",
+        version: "v1.0.0",
+        description: "Landing page for Peruvian Amazonite gemstones",
+        link: "https://github.com/pav-dev98/peruvian-amazonite",
+        tags: ["React", "Astro", "Tailwind"],
+        stats: { stars: 45, forks: 8 }
+    },
+    {
+        name: "Life Rock",
+        version: "v2.0.0",
+        description: "E-commerce platform for crystals and minerals",
+        link: "https://github.com/pav-dev98/life-rock",
+        tags: ["Next.js", "PostgreSQL", "Stripe"],
+        stats: { stars: 89, forks: 12 }
+    },
+    {
+        name: "TaskFlow",
+        version: "v1.5.0",
+        description: "Project management tool with kanban boards",
+        link: "https://github.com/pav-dev98/taskflow",
+        tags: ["React", "Firebase", "Redux"],
+        stats: { stars: 230, forks: 45 }
+    },
+    {
+        name: "DevPortfolio",
+        version: "v1.0.0",
+        description: "Minimal portfolio template for developers",
+        link: "https://github.com/pav-dev98/devportfolio",
+        tags: ["Astro", "TypeScript", "CSS"],
+        stats: { stars: 310, forks: 67 }
+    },
+    {
+        name: "WeatherAPI",
+        version: "v2.0.0",
+        description: "REST API for weather data with caching",
+        link: "https://github.com/pav-dev98/weatherapi",
+        tags: ["Python", "Redis", "Docker"],
+        stats: { stars: 175, forks: 32 }
+    },
+    {
+        name: "ChatBot ML",
+        version: "v0.9.0",
+        description: "AI chatbot with NLP capabilities",
+        link: "https://github.com/pav-dev98/chatbot-ml",
+        tags: ["Python", "TensorFlow", "FastAPI"],
+        stats: { stars: 420, forks: 89 }
+    },
+    {
+        name: "AuthZero",
+        version: "v1.2.0",
+        description: "Authentication microservice with OAuth2",
+        link: "https://github.com/pav-dev98/authzero",
+        tags: ["Node.js", "JWT", "MongoDB"],
+        stats: { stars: 95, forks: 18 }
+    }
+];
+---
+
+<Layout title="_projects">
+    <div class="projects-container">
+        <header class="projects-header">
+            <h1><span class="prompt">&gt;</span> ls ./projects</h1>
+            <p class="subtitle">// click on a project to see more details</p>
+        </header>
+
+        <div class="projects-grid">
+            {projects.map((project) => (
+                <a href={project.link} target="_blank" class="project-card">
+                    <div class="card-header">
+                        <h3>{project.name}</h3>
+                        <span class="version">{project.version}</span>
+                    </div>
+                    <p class="description">{project.description}</p>
+                    <div class="tags">
+                        {project.tags.map((tag) => (
+                            <span class="tag">{tag}</span>
+                        ))}
+                    </div>
+                    <div class="card-footer">
+                        <span class="stat">
+                            <span class="icon">★</span>
+                            {project.stats.stars}
+                        </span>
+                        <span class="stat">
+                            <span class="icon">⑂</span>
+                            {project.stats.forks}
+                        </span>
+                    </div>
+                </a>
+            ))}
+        </div>
+
+        <div class="projects-stats">
+            <h2><span class="prompt">&gt;</span> cat stats.json</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contribution-cta">
+            <p>// want to see more?</p>
+            <div class="cta-links">
+                <a href="https://github.com/pav-dev98" target="_blank" class="cta-button">
+                    &gt; github
+                </a>
+                <a href="https://github.com/pav-dev98" target="_blank" class="cta-button">
+                    &gt; npm packages
+                </a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .projects-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+    }
+
+    .projects-header {
+        margin-bottom: 3rem;
+    }
+
+    .projects-header h1 {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+    }
+
+    .prompt {
+        color: var(--tertiary);
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    .project-card {
+        background: #16191b;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 1.25rem;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-card:hover {
+        border-color: var(--secondary);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .card-header h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--secondary);
+    }
+
+    .version {
+        font-size: 0.75rem;
+        color: var(--text-gray);
+        opacity: 0.6;
+    }
+
+    .description {
+        color: var(--text-gray);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        flex-grow: 1;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .tag {
+        background: rgba(120, 188, 255, 0.1);
+        border: 1px solid rgba(120, 188, 255, 0.2);
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+        color: var(--secondary);
+        border-radius: 4px;
+    }
+
+    .card-footer {
+        display: flex;
+        gap: 1rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.8rem;
+        color: var(--text-gray);
+    }
+
+    .stat .icon {
+        color: var(--tertiary);
+    }
+
+    .projects-stats {
+        margin-bottom: 3rem;
+    }
+
+    .projects-stats h2 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        color: var(--text-gray);
+    }
+
+    .stats-grid {
+        display: flex;
+        gap: 3rem;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        font-weight: 600;
+    }
+
+    .stat-label {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+    }
+
+    .contribution-cta {
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contribution-cta p {
+        color: var(--text-gray);
+        margin-bottom: 1rem;
+    }
+
+    .cta-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: transparent;
+        border: 1px solid var(--secondary);
+        color: var(--secondary);
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+        background: var(--secondary);
+        color: var(--primary);
+    }
+
+    @media (max-width: 1200px) {
+        .projects-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 900px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
