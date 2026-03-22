@@ -13,12 +13,24 @@ const currentPath = pathname.slice(1);
         <meta name="description" content={description} />
 
         <script src="https://kit.fontawesome.com/585d4053dd.js" crossorigin="anonymous"></script>
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navList = document.querySelector('.nav-list');
+            
+            menuToggle?.addEventListener('click', () => {
+                navList?.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        </script>
     </head>
     <body>
         <div class="layout">
             <header>
                 <nav>
-                    <ul>
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <span class="hamburger"></span>
+                    </button>
+                    <ul class="nav-list">
                         <li class={pathname === "/" ? "active" : ""}>
                             <a href="/">_hello</a>
                         </li>
@@ -81,7 +93,7 @@ nav{
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
         position: relative;
         z-index: 200;
-    
+        min-height: 60px;
     }
 nav ul{
         list-style-type: none;
@@ -156,5 +168,75 @@ footer ul li a{
         background-color: black;
         width: 100%;
         padding: 1rem 2rem;
+    }
+    .menu-toggle{
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 1rem;
+        position: absolute;
+        right: 0;
+        top: 15px;
+        z-index: 300;
+    }
+    .hamburger{
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--text-gray);
+        position: relative;
+        transition: all .3s ease;
+    }
+    .hamburger::before,
+    .hamburger::after{
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background-color: var(--text-gray);
+        transition: all .3s ease;
+    }
+    .hamburger::before{
+        top: -8px;
+    }
+    .hamburger::after{
+        top: 8px;
+    }
+    .menu-toggle.active .hamburger{
+        background-color: transparent;
+    }
+    .menu-toggle.active .hamburger::before{
+        top: 0;
+        transform: rotate(45deg);
+    }
+    .menu-toggle.active .hamburger::after{
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    @media (max-width: 768px){
+        .menu-toggle{
+            display: block;
+        }
+        nav ul{
+            flex-direction: column;
+            display: none;
+            width: 100%;
+        }
+        nav ul.active{
+            display: flex;
+        }
+        nav ul li{
+            border: none;
+            border-bottom: rgba(108, 117, 125, .5) 1px solid;
+        }
+        nav ul li:last-child{
+            flex-grow: unset;
+            text-align: left;
+        }
+        nav ul li.active{
+            border: none;
+            border-left: #ffd578 3px solid;
+        }
     }
 </style>
